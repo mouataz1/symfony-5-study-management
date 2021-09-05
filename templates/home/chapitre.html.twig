@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MH | StudyMge{% endblock %}
+
+
+
+{% block body %}
+<h1 class="text-center pt-5">Touts les chapitres du module {{module.name}}</h1>
+<h5 class="text-center p-2">cliquer sur le chapitre que vouler vour reviser !</h5>
+
+<div class="container">
+    <div class="row">
+    {% for chapitre in chapitres %}
+        <div class="col-6">
+                <div class="alert alert-dismissible alert-info text-center">
+                    <a href="{{path('coures', {'id': chapitre.id})}}" class="alert-link">{{chapitre.nom}}</a>
+                </div>
+            </div>
+    {% endfor %}
+    
+
+
+<div class="alert alert-dismissible alert-warning">
+  <h4 class="alert-heading">Warning!</h4>
+  <p class="mb-0">Vous avez un controle le  <strong>{{module.dateControle |date("m/d/Y")}}</strong>.</p>
+</div>
+
+
+<div class="alert alert-dismissible alert-primary">
+  <strong>Be prepared !</strong> <h6> L'examen finale sera le  <strong>{{module.dateExam |date("m/d/Y")}}</strong></h6>
+</div>
+
+
+            
+    </div>
+</div>
+
+{% endblock %}

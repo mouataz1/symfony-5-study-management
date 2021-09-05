@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MH | StudyMge{% endblock %}
+
+{% block body %}
+<h1 class="text-center p-5">Choisissez Votre Niveau d'etude !</h1>
+<div class="container">
+    <div class="row">
+        {% for niveau in niveaux %}
+            <div class="col-6">
+                <div class="alert alert-dismissible alert-danger text-center">
+                    <a href="{{ path('modules', {'id': niveau.id})}}" class="alert-link">{{niveau.name}}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

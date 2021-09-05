@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MH | StudyMge{% endblock %}
+
+
+
+{% block body %}
+<h1 class="text-center pt-5">Touts les modules du 4eme année</h1>
+<h5 class="text-center p-2">cliquer sur le module que vouler vour reviser !</h5>
+
+<div class="container">
+    <div class="row">
+    {% for module in modules %}
+        <div class="col-6">
+                <div class="alert alert-dismissible alert-info text-center">
+                    <a href="{{path('chapitres', {'id': module.id})}}" class="alert-link">{{module.name}}</a>
+                </div>
+            </div>
+    {% endfor %}
+            
+    </div>
+</div>
+
+{% endblock %}
